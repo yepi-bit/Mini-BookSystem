@@ -1,0 +1,51 @@
+<view class="search">
+  <van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  show-action
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+/>
+</view>
+<view class="banner">
+  <swiper autoplay interval="2000" indicatorDots="true" indicator-color="translucent" indicator-active-color="MediumPurple" circular previous-margin="80rpx"
+    next-margin="80rpx" bindchange="handleChange">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{currentIndex == index ? 'active': ''}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="works">
+  <view class="container">
+    <view class="pubTitle">
+      <view class="txt">热门图书</view>
+      <navigator class="more">更多></navigator>
+    </view>
+    <view class="out">
+      <view class="row" wx:for="{{dataList}}" wx:key="index">
+        <van-image width="100" height="100" src="{{item.imgUrl}}" />
+        <view class="text">
+          <view class="title">{{item.title}}</view>
+          <view class="time">
+            <view class="author">作者：{{item.author}}</view>
+          {{item.time}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="pubTitle">
+      <view class="txt">资源共享</view>
+      <navigator class="more">更多></navigator>
+    </view>
+    <view class="out">
+      <view class="topic" wx:for="{{datalist}}" wx:key="index">
+        <van-panel title="前端" desc="HTML CSS JS" status="状态">
+          <view class="content">{{item.title}}</view>
+        </van-panel>
+      </view>
+      </view>
+  </view>
+</view>
+

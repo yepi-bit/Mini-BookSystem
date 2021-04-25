@@ -1,0 +1,87 @@
+page{
+  background-color: whitesmoke;
+}
+.user_info{
+  height: 45vh;
+}
+.user_img {
+  position: relative;
+}
+.user_img .user_bg{
+  height: 45vh;
+  filter: blur(8rpx);
+}
+.user_img .user{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30%;
+  text-align: center;
+}
+.user_icon{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user_name{
+  color: aliceblue;
+  margin-top: 20rpx;
+  font-size: 40rpx;
+}
+.footer{
+  width: 94%;
+  height: 400rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  background-color: white;
+  border-radius: 14rpx;
+}
+
+.cell{
+  background-color: #fff;
+   font-size:14px;
+   font-weight: bold;
+}
+ 
+.cell-item{
+  border-bottom: 1rpx solid #ddd;
+  padding: 26rpx 26rpx;
+}
+.hr{
+  font-size:14px;
+  padding: 26rpx 26rpx;
+}
+/* 箭头 */
+.arrow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.arrow::after{
+    content: "";
+    width: 15rpx;
+    height: 15rpx;
+    border-top: 3rpx solid #ccc;
+    border-right: 3rpx solid #ccc;
+    transform: rotate(45deg);
+}
+.footer_name{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: rgb(98, 77, 189);
+  animation: dh linear 1s infinite alternate;
+}
+.item {
+  display: inline-block;
+  width: 22px;
+  margin-right: 5px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background-color: #1989fa;
+  border-radius: 2px;
+}
+.countDownTimeView{display: flex; justify-content: center;}
+.year {display: flex; align-items: center; font-size: 22rpx;}
+.voteText{background-color: aqua; margin-right: 16rpx; padding: 10rpx 10rpx; font-size: 24rpx; border-radius: 20rpx;}

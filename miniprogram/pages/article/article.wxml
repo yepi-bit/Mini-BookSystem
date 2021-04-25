@@ -1,0 +1,33 @@
+<!--pages/article/article.wxml-->
+<view class="publish">
+  <view class="service">
+    <button class="btn" bindtap="btnSelect"></button>
+    <image mode="heightFix" src="/img/publish.png"></image>
+  </view>
+</view>
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:cancel="onClose"
+  bind:select="mySelect"
+  cancel-text="取消"
+/>
+<view class="pubTitle">
+  <view class="txt">图书系列</view>
+  <navigator class="more">更多></navigator>
+</view>
+<view class="out">
+  <view class="row" wx:for="{{dataList}}" wx:key="index">
+    <van-image width="100" height="100" src="{{item.imgUrl}}" />
+    <view class="text">
+      <view class="title">话题：{{item.title}}
+        <view class="content">{{item.content}}</view>
+      </view>
+      <view class="time">
+        <view class="author">作者：{{item.author}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button bindtap="refresh" type="primary" plain="false">刷新一下</button>

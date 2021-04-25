@@ -1,0 +1,45 @@
+.banner {
+  position: relative;
+  background-color: #f0f3f8;
+}
+.search {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.slide-image {
+  position: absolute;
+  height: 200rpx;
+  width: 650rpx;
+  z-index: 5;
+  opacity: 0.6;
+  top: 13%;
+  margin: 0 20rpx;
+}
+
+swiper {
+  height: 280rpx;
+}
+.active {
+  opacity: 1;
+  z-index: 10;
+  height: 260rpx;
+  width: 570rpx;
+  border-radius: 14rpx;
+  top: 3%;
+  transition: all 0.2s ease-in 0s;
+}
+
+page{background-color: #f0f3f8;}
+.works{background-color: #f0f3f8; padding: 30rpx 0 10rpx;}
+.pubTitle {display: flex; justify-content: space-between; align-items: center;}
+.pubTitle .txt {font-size: 30rpx; position: relative; padding-left: 20rpx; font-weight: bold;} 
+.pubTitle .txt::before{display: block; width: 8rpx; height: 32rpx; background-color: red; content: ""; position: absolute; left: 0; top: 50%; margin-top: -15rpx;}
+.pubTitle .more {font-size: 28rpx; color: #666; margin-right: 15rpx;}
+.out {padding: 20rpx;box-sizing: border-box;}
+.row {display: flex; height: 210rpx; margin-bottom: 20rpx;}
+.text{flex: 8;border-bottom: 2rpx solid #eee; padding-left: 10rpx; display: flex; flex-direction: column; justify-content: space-between; background-color: white;}
+.text .title {font-size: 28rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.text .time {font-size: 26rpx; color: #999;}
+.topic{margin-bottom: 20rpx;}
+.topic .content {font-size: 28rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3;}

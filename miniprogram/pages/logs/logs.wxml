@@ -1,0 +1,32 @@
+<view class="user_info"> 
+  <view class="user_img">
+    <image mode="heightFix" class="user_bg" src="{{url}}"></image>
+      <view class="user">
+        <image class="user_icon" src="{{url}}"></image>
+        <view class="user_name">Yepi-bit</view>
+      </view>
+  </view>
+</view>
+<view class="footer">
+  <navigator class='cell-item arrow'>
+    <text>个人中心</text>
+  </navigator>
+  <navigator class='cell-item arrow'>
+    <text>赞赏支持</text>
+  </navigator>
+  <navigator class='cell-item arrow'>
+    <text>推荐分享</text>
+  </navigator>
+  <navigator class='hr arrow'>
+    <text>关于</text>
+  </navigator>
+</view>
+<view class="footer_name"><text>YePi-bit - ID10000</text></view>
+<view class="countDownTimeView" >
+    <view class="year">距2022年：
+        <view class="voteText ">{{countDownDay}}天</view>
+        <view class="voteText ">{{countDownHour}}时</view>
+        <view class="voteText ">{{countDownMinute}}分</view>
+        <view class="voteText ">{{countDownSecond}}秒</view>
+      </view>
+  </view>
