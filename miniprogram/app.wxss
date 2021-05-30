@@ -8,3 +8,11 @@
   25%{opacity: 0;}
 }
 
+@keyframes light{
+  from {
+    box-shadow: 0 0 16rpx #f00;
+  }
+  frtoom {
+    box-shadow: 0 0 64rpx #f00;
+  }
+}

@@ -4,7 +4,9 @@
     "pages/article/article",
     "pages/logs/logs",
     "pages/publish/publish",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/qrCode/qrCode",
+    "pages/details/details"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -45,6 +47,8 @@
     "van-count-down": "@vant/weapp/count-down/index",
     "van-panel": "@vant/weapp/panel/index",
     "van-uploader": "@vant/weapp/uploader/index",
-    "van-image": "@vant/weapp/image/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index"
   }
 }

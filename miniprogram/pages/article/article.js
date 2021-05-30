@@ -1,23 +1,15 @@
 // pages/article/article.js
-const db = wx.cloud.database()
+const db = wx.cloud.database();
+const todos = db.collection("demolist");
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    actions: [{name: '发布动态'},{name: '分享文章'}],
-    dataList:''
+    actions: [{name: '发布动态'},{name: '分享资源'}],
+    dataList:[],
   },
-  refresh(){
-    db.collection("demolist").get({
-      success:res=>{
-        console.log(res)
-        this.setData({
-          dataList:res.data
-        })
-      }
-    })
-  },
+  //闪烁飞机
   btnSelect(){
     this.setData({
       show:true
@@ -25,6 +17,9 @@ Page({
   },
   //选择需要发布的
   mySelect()  {
+    this.setData({
+      show:false
+    })
     wx.navigateTo({
       url: '/pages/publish/publish',
     })
@@ -38,14 +33,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getData(res =>{});
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
+  onPullDownRefresh:function(){
+    this.getData(res => {
+      wx.stopPullDownRefresh();
+    });
+  },
+  getData:function(callback){
+    if(!callback){
+      callback = res =>{}
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    todos.get().then(res => {
+      this.setData({
+        dataList:res.data
+      },res =>{
+        wx.hideLoading();
+        callback();
+      })
+    })
+   },
+    /**
+   * 页面上拉触底事件的处理函数
    */
-  onReady: function () {
-
+  onReachBottom: function () {
+      this.getData()
   },
 
   /**
@@ -66,20 +81,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 

@@ -1,8 +1,17 @@
 <!--pages/article/article.wxml-->
+<view class="search">
+  <van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  show-action
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+/>
+</view>
 <view class="publish">
   <view class="service">
     <button class="btn" bindtap="btnSelect"></button>
-    <image mode="heightFix" src="/img/publish.png"></image>
+    <image mode="heightFix" src="/img/write.png"></image>
   </view>
 </view>
 <van-action-sheet
@@ -17,17 +26,19 @@
   <navigator class="more">更多></navigator>
 </view>
 <view class="out">
-  <view class="row" wx:for="{{dataList}}" wx:key="index">
-    <van-image width="100" height="100" src="{{item.imgUrl}}" />
-    <view class="text">
-      <view class="title">话题：{{item.title}}
-        <view class="content">{{item.content}}</view>
+  <block wx:for="{{dataList}}" wx:key="index">
+    <navigator url="../details/details?id = {{item._id}}">
+      <view class="row">
+        <van-image width="100" height="100" src="{{item.imgUrl}}" />
+          <view class="text">
+            <view class="title">书名：{{item.title}}
+              <view class="content">{{item.content}}</view>
+            </view>
+            <view class="time">
+              <view class="author">作者：{{item.author}}</view>
+            </view>
+          </view>
       </view>
-      <view class="time">
-        <view class="author">作者：{{item.author}}</view>
-      </view>
-    </view>
-  </view>
+    </navigator>
+  </block>
 </view>
-
-<button bindtap="refresh" type="primary" plain="false">刷新一下</button>

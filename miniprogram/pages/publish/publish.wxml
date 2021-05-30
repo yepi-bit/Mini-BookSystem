@@ -22,12 +22,7 @@
   <input name="author" bindinput="authorInput" placeholder="留下你的名字" />
   <view class="hr"></view>
   <textarea name="content" placeholder="你有什么想说的吗"></textarea>
-  <van-uploader file-list="{{ fileList }}" deletable="{{ true }}" bindtap="ClickImage" />
+  <image name="imgUrl" class="imgSize" src="{{imgUrl}}"></image>
+  <van-uploader class="camera" bindtap="selectImage" />
   <button type="primary" plain form-type="submit" disabled="{{loginBtnState}}">发布</button>
 </form>
-<!-- <view class="Btn">
-  <van-button icon="checked" round plain type="primary" color="#7232dd" bindtap="onPublish">发布</van-button>
-</view>
-<view wx:for="{{dataObj}}" wx:key="{{index}}">{{item.author}}-{{item.content}}
-<image src="{{item.imgUrl}}"></image>
-</view> -->

@@ -1,0 +1,2 @@
+/* pages/qrCode/qrCode.wxss */
+.QR { display: flex; align-items: center; margin-top: 20rpx;}

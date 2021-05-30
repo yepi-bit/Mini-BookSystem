@@ -1,5 +1,5 @@
 {
-  "style":"v2",
   "enablePullDownRefresh": true,
+  "onReachBottomDistance":50,
   "backgroundTextStyle": "dark"
 }

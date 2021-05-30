@@ -1,11 +1,6 @@
-<view class="search">
-  <van-search
-  value="{{ value }}"
-  placeholder="请输入搜索关键词"
-  show-action
-  bind:search="onSearch"
-  bind:cancel="onCancel"
-/>
+<view class="navbar">
+  <van-search value="{{ value }}" background="#f0f3f8" placeholder="请输入搜索关键词" class="toSearch" />
+  <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL6JsTwVLbENeIHGtB7WicgiaKBFwscEJleeOibW5OjiaUTt3P5ibtkHEwkRdyu5qAv1rR3Jh01276ZkCQ/132"></image>
 </view>
 <view class="banner">
   <swiper autoplay interval="2000" indicatorDots="true" indicator-color="translucent" indicator-active-color="MediumPurple" circular previous-margin="80rpx"
@@ -17,23 +12,36 @@
     </block>
   </swiper>
 </view>
+<swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+  <block wx:for="{{inforList}}" wx:key="index">
+    <swiper-item>
+      <view class="swiper_item">{{item.title}}</view>
+    </swiper-item>
+  </block>
+</swiper>
 <view class="works">
   <view class="container">
     <view class="pubTitle">
       <view class="txt">热门图书</view>
-      <navigator class="more">更多></navigator>
+      <navigator class="more" bindtap="toArticle">查看全部>
+      </navigator>
     </view>
     <view class="out">
-      <view class="row" wx:for="{{dataList}}" wx:key="index">
+    <block wx:for="{{dataList}}" wx:key="index">
+    <navigator>
+      <view class="row">
         <van-image width="100" height="100" src="{{item.imgUrl}}" />
         <view class="text">
-          <view class="title">{{item.title}}</view>
-          <view class="time">
-            <view class="author">作者：{{item.author}}</view>
-          {{item.time}}
+            <view class="title">书名：{{item.title}}
+              <view class="content">{{item.content}}</view>
+            </view>
+            <view class="time">
+              <view class="author">作者：{{item.author}}</view>
+            </view>
           </view>
-        </view>
       </view>
+    </navigator>
+    </block>
     </view>
     <view class="pubTitle">
       <view class="txt">资源共享</view>
@@ -42,8 +50,43 @@
     <view class="out">
       <view class="topic" wx:for="{{datalist}}" wx:key="index">
         <van-panel title="前端" desc="HTML CSS JS" status="状态">
-          <view class="content">{{item.title}}</view>
+          <van-icon name="hot-o" size="30px" color="red" />
+          <view class="explain">{{item.title}}</view>
+          <view class="footer">
+          <view>
+            <van-icon name="good-job-o" bindtap="addLike" />
+            {{like}}
+          </view>
+          <view>
+            <van-icon name="share-o" />
+            分享
+          </view>
+          </view>
         </van-panel>
+      </view>
+      <view>
+      <block class="topic" wx:for="{{datalist}}" wx:key="index">
+        <view class="comment">
+          <view class="head">
+            <image src="/img/gif3.gif"></image>
+            <text>Yepi-bit</text>
+          </view>
+          <view class="details">
+            <van-icon name="fire" color="#ee0a24" />
+            掘金 and 力扣
+          </view>
+          <view class="footer">
+          <view>
+            <van-icon name="good-job-o" bindtap="addLike" />
+            {{like}}
+          </view>
+          <view>
+            <van-icon name="share-o" />
+            分享
+          </view>
+          </view>
+        </view>
+      </block>
       </view>
       </view>
   </view>

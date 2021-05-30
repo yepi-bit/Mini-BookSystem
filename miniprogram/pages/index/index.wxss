@@ -1,3 +1,7 @@
+.navbar {display: flex;align-items: center; justify-content: space-between; height: 90rpx; padding: 6rpx;}
+.navbar .toSearch { width: 82%;}
+.navbar image {border: 2rpx solid#4bb0ff;}
+.navbar image {width: 60rpx;height: 60rpx; margin-right: 40rpx; border-radius: 50rpx; animation: light 1s ease-in-out infinite alternate;}
 .banner {
   position: relative;
   background-color: #f0f3f8;
@@ -16,6 +20,24 @@
   top: 13%;
   margin: 0 20rpx;
 }
+.swiper_container{
+  display: flex;
+  justify-content: center;
+  height: 30rpx;
+  padding: 16rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.swiper_item{
+  margin-left: 15rpx;
+  font-size: 22rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  letter-spacing: 3rpx;
+  color: black;
+  font-weight: bold;
+}
 
 swiper {
   height: 280rpx;
@@ -31,7 +53,7 @@ swiper {
 }
 
 page{background-color: #f0f3f8;}
-.works{background-color: #f0f3f8; padding: 30rpx 0 10rpx;}
+.works{background-color: #f0f3f8; padding: 28rpx 0 10rpx;}
 .pubTitle {display: flex; justify-content: space-between; align-items: center;}
 .pubTitle .txt {font-size: 30rpx; position: relative; padding-left: 20rpx; font-weight: bold;} 
 .pubTitle .txt::before{display: block; width: 8rpx; height: 32rpx; background-color: red; content: ""; position: absolute; left: 0; top: 50%; margin-top: -15rpx;}
@@ -39,7 +61,18 @@ page{background-color: #f0f3f8;}
 .out {padding: 20rpx;box-sizing: border-box;}
 .row {display: flex; height: 210rpx; margin-bottom: 20rpx;}
 .text{flex: 8;border-bottom: 2rpx solid #eee; padding-left: 10rpx; display: flex; flex-direction: column; justify-content: space-between; background-color: white;}
-.text .title {font-size: 28rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-.text .time {font-size: 26rpx; color: #999;}
-.topic{margin-bottom: 20rpx;}
-.topic .content {font-size: 28rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3;}
+.text{flex: 1; padding-left: 10rpx; display: flex; flex-direction: column; justify-content: space-between; background-color: white;}
+.text .title {font-size: 30rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.text .content {font-size: 25rpx;}
+.author {font-size: 25rpx; color: #666;}
+.explain {margin: 14rpx; font-size: 26rpx; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; word-break: break-all; -webkit-box-orient: vertical; -webkit-line-clamp: 3;}
+.footer{display: flex; padding: 10rpx; font-size: 24rpx;  justify-content: space-around;}
+
+.comment{margin-top: 10rpx; background-color: white;}
+.head{
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+}
+.head image {width: 80rpx; height: 80rpx; margin-left: 10rpx; border-radius: 50%; animation: light 1s ease-in-out infinite alternate; }
+.head text {line-height: 80rpx;margin-left: 10rpx; font-size: 26rpx; color: #999;}
+.details{height: 160rpx;margin-left: 10rpx;}

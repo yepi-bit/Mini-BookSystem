@@ -1,0 +1,5 @@
+<!--pages/qrCode/qrCode.wxml-->
+<van-button bindtap="getQR" color="linear-gradient(to right, #4bb0ff, #6149f6)" class="QR">
+  生成二维码
+</van-button>
+<image src="{{QR}}" style="width:750rpx; height:750rpx;"></image>

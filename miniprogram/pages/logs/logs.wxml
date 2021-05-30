@@ -1,32 +1,59 @@
-<view class="user_info"> 
+<view class="user_info">
   <view class="user_img">
-    <image mode="heightFix" class="user_bg" src="{{url}}"></image>
-      <view class="user">
-        <image class="user_icon" src="{{url}}"></image>
-        <view class="user_name">Yepi-bit</view>
+    <image mode="heightFix" class="user_bg" src="{{bg_url}}"></image>
+    <view class="user">
+      <image class="user_icon" bindtap="bindViewTap" src="{{ userInfo.avatarUrl ? userInfo.avatarUrl : bg_url }}"
+        mode="cover"></image>
+      <view class="service">
+        <text>{{userInfo.nickName? userInfo.nickName : userName}}</text>
       </view>
+      <view class="middle">
+        <view class="center">
+          <view class="flex_center">
+            <view class="bold ">0</view>
+            <view class="flex_center_top">积分</view>
+          </view>
+          <view class="flex_center">
+            <view class="bold">0</view>
+            <view class="flex_center_top">收藏</view>
+          </view>
+          <view class="flex_center">
+            <view class="bold">0</view>
+            <view class="flex_center_top">关注</view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
-<view class="footer">
-  <navigator class='cell-item arrow'>
-    <text>个人中心</text>
-  </navigator>
-  <navigator class='cell-item arrow'>
-    <text>赞赏支持</text>
-  </navigator>
-  <navigator class='cell-item arrow'>
-    <text>推荐分享</text>
-  </navigator>
-  <navigator class='hr arrow'>
-    <text>关于</text>
-  </navigator>
-</view>
-<view class="footer_name"><text>YePi-bit - ID10000</text></view>
-<view class="countDownTimeView" >
+<view class="footer_top" bindtouchstart="handleTouchStart" bindtouchmove="handleTouchMove"
+    bindtouchend="handleTouchEnd" style="transform:{{coverTransform}}; transition: {{coverTransition}}">
+  <image class="arc" src="/img/curve.png"></image>
+  <view class="footer">
+    <navigator class='cell-item arrow'>
+      <text>个人中心</text>
+    </navigator>
+    <navigator class='cell-item arrow' url="../qrCode/qrCode">
+      <text>二维码</text>
+    </navigator>
+    <navigator class='cell-item arrow'>
+      <text>推荐分享</text>
+    </navigator>
+    <navigator class='hr arrow'>
+      <text>关于</text>
+    </navigator>
+  </view>
+  <view class="footer_name"><text>YePi-bit - ID10000</text></view>
+  <view class="countDownTimeView">
     <view class="year">距2022年：
-        <view class="voteText ">{{countDownDay}}天</view>
-        <view class="voteText ">{{countDownHour}}时</view>
-        <view class="voteText ">{{countDownMinute}}分</view>
-        <view class="voteText ">{{countDownSecond}}秒</view>
-      </view>
+      <view class="voteText ">{{countDownDay}}天</view>
+      <view class="voteText ">{{countDownHour}}时</view>
+      <view class="voteText ">{{countDownMinute}}分</view>
+      <view class="voteText ">{{countDownSecond}}秒</view>
+    </view>
   </view>
+  <block wx:if="{{!hasUserInfo}}">
+    <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">
+    </button>
+  </block>
+</view>

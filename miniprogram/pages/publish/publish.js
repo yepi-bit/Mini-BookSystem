@@ -1,5 +1,6 @@
 // pages/publish/publish.js
-const db = wx.cloud.database()
+const db = wx.cloud.database();
+const todos = db.collection("demolist");
 Page({
   /**
    * 页面的初始数据
@@ -9,8 +10,8 @@ Page({
     message:'',
     title:"",
     author:'',
-    fileList: [],
-    dataObj:''
+    dataObj:'',
+    imgUrl:''
   },
   
   onChange(res){
@@ -18,40 +19,37 @@ Page({
       message:res.detail
     })
   },
-  onsubmit(res){
-    var {title,author,content} = res.detail.value;
-    db.collection("demolist").add({
+  onsubmit:function(event){
+    todos.add({
       data:{
-        title:title,
-        author:author,
-        content:content
+        title:event.detail.value.title,
+        author:event.detail.value.author,
+        content:event.detail.value.content,
+        imgUrl:this.data.imgUrl
       }
     }).then(res=>{
-      // console.log(res)
+      wx.showToast({
+        title: '成功',
+        icon:'success'
+      })
     })
     wx.switchTab({
       url: '/pages/article/article',
     })
   },
-
-  // onPublish(res){
-  //   if( message != "" || fileList != ""){
-  //   db.collection("demolist").add({
-  //     success:res=>{
-  //       console.log(res)
-  //       this.setData({
-  //         dataObj:res.data
-  //       })
-  //     }
-  //   })
-  // }else {
-  //   console.log("失败")
-  // }
-  // },
-  ClickImage(){
+  selectImage:function(e){
     wx.chooseImage({
-      success:res=>{
-        console.log(res)
+      success:res =>{
+        wx.cloud.uploadFile({
+          cloudPath:"${Math.floor(Math.random()*10000000)}.png",
+          filePath:res.tempFilePaths[0]
+        }).then(res => {
+          this.setData({
+            imgUrl:res.fileID
+          })
+        }).catch(err =>{
+          console.log(err)
+        })
       }
     })
   },

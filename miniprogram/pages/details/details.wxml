@@ -1,0 +1,2 @@
+<!--pages/details/details.wxml-->
+<van-empty description="描述文字" />
