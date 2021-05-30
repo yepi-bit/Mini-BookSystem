@@ -4,8 +4,8 @@ const {
   WXMINIUser,
   WXMINIQR
 } = require('wx-js-utils');
-const appId = 'wx26a5a0f7e88cc205';
-const secret = '13fcc5917012d47afa2d24b65c64be17';
+const appId = 'wx26a5a0f7e88cc502';
+const secret = '13fcc5917012d47afa2d24b65c64eb71';
 
 cloud.init()
 
